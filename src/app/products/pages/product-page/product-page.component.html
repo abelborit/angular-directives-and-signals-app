@@ -13,9 +13,15 @@
 
     <div class="col-auto">
       <!-- este es un simple span que tiene la directiva customLabel -->
-      <span customLabel [changeColor]="color"></span>
-      <br />
-      <span customLabel [changeColor]="color"> + Mensaje</span>
+      <!-- <span customLabel [changeColor]="color"></span> -->
+      <!-- <br /> -->
+      <!-- <span customLabel [changeColor]="color"> + Mensaje</span> -->
+
+      <span
+        customLabel
+        [changeColor]="color"
+        [setErrors]="myForm.get('name')?.errors"
+      ></span>
     </div>
   </div>
 
