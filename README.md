@@ -1,3 +1,35 @@
+# Angular TypeScript - Angular Directives And Signals App
+
+---
+
+# Temas puntuales de la sección
+
+### ¿Qué veremos en esta sección?
+
+- En esta sección veremos cómo crear nuestras propias directivas personalizadas en Angular para que puedan expandir el comportamiento del HTML con el objetivo de poder reutilizar código, transformar elementos HTML para que según la directiva que tenga realice algo en específico, etc.
+- La idea será crear una directiva robusta que nos sirva para expandir los formularios reactivos de Angular y resumir la forma en cómo son mostrados los errores en los formularios, y así no tener que colocar infinidad de condiciones dentro del HTML. Esta directiva que crearemos es de uso real y dará una buena idea de qué podemos hacer con las directivas.
+- Se pueden crear directivas para lo que consideremos que se puede reutilizar y surge una duda ¿Cuál es la diferencia de usar una directiva vs usar un componente personalizado de Angular? La respuesta es que son similares pero el beneficio de usar las directivas es que se puede trabajar de una forma más puntual un elemento. Básicamente las directivas se utilizan para manipular el DOM, por ejemplo añadiendo/quitando el elemento del DOM o cambiando la apariencia de los elementos del DOM, etc, en pocas palabras, las directivas extienden la funcionalidad del HTML para que realice alguna funcionalidad extra.
+
+### \* PASOS A REALIZAR:
+
+1. ejemplo
+2. ejemplo
+3. ejemplo
+
+### \* RECURSOS A USAR:
+
+- ejemplo
+- ejemplo
+- ejemplo
+
+### \* NOTAS:
+
+- ejemplo
+- ejemplo
+- ejemplo
+
+---
+
 # AngularDirectivesAndSignalsApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.0.
