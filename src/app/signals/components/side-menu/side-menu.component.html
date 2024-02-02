@@ -1,6 +1,18 @@
 <ul class="list-group">
-  <li
+  <!--  FORMA 1: manera tradicional -->
+  <!-- <li
     *ngFor="let item of menuItems"
+    class="list-group-item"
+    [routerLink]="[item.route]"
+    routerLinkActive="active"
+  >
+    {{ item.name }}
+  </li> -->
+
+  <!-- FORMA 2: con signals o señales -->
+  <!-- colocarlo directamente como menuItems sería colocar la referencia a la señal pero no al valor de la señal. Para tener el valor hay que colocarlo como menuItems() -->
+  <li
+    *ngFor="let item of menuItems()"
     class="list-group-item"
     [routerLink]="[item.route]"
     routerLinkActive="active"
