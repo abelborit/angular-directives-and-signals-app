@@ -6,9 +6,25 @@
 
 ### ¿Qué veremos en esta sección?
 
+#### **Directivas:**
+
 - En esta sección veremos cómo crear nuestras propias directivas personalizadas en Angular para que puedan expandir el comportamiento del HTML con el objetivo de poder reutilizar código, transformar elementos HTML para que según la directiva que tenga realice algo en específico, etc.
 - La idea será crear una directiva robusta que nos sirva para expandir los formularios reactivos de Angular y resumir la forma en cómo son mostrados los errores en los formularios, y así no tener que colocar infinidad de condiciones dentro del HTML. Esta directiva que crearemos es de uso real y dará una buena idea de qué podemos hacer con las directivas.
 - Se pueden crear directivas para lo que consideremos que se puede reutilizar y surge una duda ¿Cuál es la diferencia de usar una directiva vs usar un componente personalizado de Angular? La respuesta es que son similares pero el beneficio de usar las directivas es que se puede trabajar de una forma más puntual un elemento. Básicamente las directivas se utilizan para manipular el DOM, por ejemplo añadiendo/quitando el elemento del DOM o cambiando la apariencia de los elementos del DOM, etc, en pocas palabras, las directivas extienden la funcionalidad del HTML para que realice alguna funcionalidad extra.
+
+#### **Signals:**
+
+#### \* Nota: Requerimiento mínimo Angular 16+
+
+- Los signals o las señales son básicamente una forma de llegar directamente a donde estamos usando una variable o valor de una variable y actualizarla, tomarla y renderizarla, etc. Es como crear una conexión en dónde se está usando la variable que pueden ser varios lugares y con la señal o el signal al cambiar la variable entonces ya sabe directamente qué variable cambió y en dónde cambió y la actualiza.
+- Formas de cambiar y actualizar los valores de los signals o las señales:
+  - `set` para establecer un valor
+  - `update` para actualizar un valor
+  - `mutate` para mutar el valor
+- También hay señales de solo lectura que son generadas mediante el método computer y la opción de lanzar efectos secundarios. El usar los efectos secundarios con las señales en Angular es como usar un useEffect() de React pero más optimizado y mejorado porque:
+  - El useEffect() que es para efectos secundarios se disparan también efectos secundarios innecesarios algunas veces perjudicando el rendimiento por las re-renderizaciones, también tiene un arreglo de dependencias para lanzar el efecto, se tiene que llamar a una función para limpiar el efecto cuando se destruya el componente, etc.
+  - Los efectos secundarios con la señales no tiene un arreglo de dependencias, solo se le dice directamente qué se quiere hacer y ese efecto se va a disparar si una de sus señales internas cambia o se actualiza, es decir, si se utiliza una señal que está dentro de un efecto secundario y la señal cambia o se actualiza entonces el efecto secundario se dispara, también que estos efectos con las señales tienen una limpieza automática, es decir, cuando ya no se está usando esa señal y se destruye el componente donde se está usando la señal y ya no vamos a usar más ese efecto secundario entonces automáticamente se limpia.
+- Los signals son una buena opción para la comunicación entre componentes y también entre componentes y el DOM. Pueden ser usados tanto en el archivo HTML como en el archivo TypeScript. En general, es recomendable usar variables si el estado es simple y no necesita ser compartido con otros componentes. Por ejemplo, si tienes una variable que almacena el título de una página, puedes usar una variable simple. Los signals son una buena opción si el estado es más complejo o si necesita ser compartido con otros componentes.
 
 ### \* PASOS A REALIZAR:
 
