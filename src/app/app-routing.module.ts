@@ -10,6 +10,11 @@ const routes: Routes = [
       ),
   },
   {
+    path: 'signals',
+    loadChildren: () =>
+      import('./signals/signals.module').then((module) => module.SignalsModule),
+  },
+  {
     path: '**',
     redirectTo: 'products-home',
   },
