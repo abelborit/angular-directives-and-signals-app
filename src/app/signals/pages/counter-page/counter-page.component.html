@@ -1,1 +1,14 @@
-<p>counter-page works!</p>
+<h3>Counter: {{ counter() }}</h3>
+<hr />
+
+<h4>Square Counter: {{ squareCounter() }}</h4>
+<hr />
+
+<button class="btn btn-primary" (click)="increaseBy(1)">+1</button>
+&nbsp;
+
+<button class="btn btn-primary" (click)="increaseBy(-1)">-1</button>
+&nbsp;
+
+<!-- con las señales se puede establecer el valor de una propiedad de forma directa como en este caso, en este caso no habría la necesidad de crear una función en el archivo counter-page.component.ts y luego que aquí se mande a llamar, es un beneficio que nos dan las señales para establecer valores a las propiedades de forma directa -->
+<button class="btn btn-primary" (click)="counter.set(0)">Reset</button>
