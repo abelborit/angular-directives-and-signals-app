@@ -1,11 +1,39 @@
-import { Component, computed, signal } from '@angular/core';
+import {
+  Component,
+  OnDestroy,
+  OnInit,
+  computed,
+  effect,
+  signal,
+} from '@angular/core';
 import { User } from '../../interfaces/user-request.interface';
 
 @Component({
   templateUrl: './properties-page.component.html',
   styleUrls: ['./properties-page.component.css'],
 })
-export class PropertiesPageComponent {
+export class PropertiesPageComponent implements OnDestroy, OnInit {
+  ngOnInit(): void {
+    /* esto es solo para demostrar que el effect se limpia solo, por ejemplo en este caso se irá incrementando el valor del counter en +1 cada segundo mientras estemos en la url http://localhost:4200/signals/properties pero cuando se cambie por ejemplo a http://localhost:4200/signals/user-info o http://localhost:4200/signals/counter veremos que el effect ya no se dispara hasta que volvamos a su url */
+    this.interval = setInterval(() => {
+      this.counter.update((current) => current + 1);
+
+      if (this.counter() == 20) {
+        this.userChangedEffect.destroy();
+        clearInterval(this.interval);
+      }
+    }, 1000);
+  }
+
+  ngOnDestroy(): void {
+    /* eliminar el effect de forma manual para que ya no se siga disparando aunque no es necesario eliminarlo manualmente ya que el effect se limpia solo */
+    // this.userChangedEffect.destroy();
+  }
+
+  public interval: any;
+
+  public counter = signal(10);
+
   public user = signal<User>({
     id: 1,
     email: 'george.bluth@reqres.in',
@@ -17,6 +45,17 @@ export class PropertiesPageComponent {
   public fullName = computed(
     () => `${this.user().first_name} ${this.user().last_name}`
   );
+
+  /* este effect() tiene un callback el cual la primera vez siempre se va a ejecutar porque es cuando el componente se crea y luego se va a ejecutar cuando alguna señal que esté dentro de este effect cambie */
+  /* este effect se disparará solo cuando la señal user (es decir, cuando cualquiera de sus propiedades cambie aunque en el effect solo se esté colocando this.user().first_name) o counter cambie */
+  public userChangedEffect = effect(() => {
+    // console.log('userChangedEffect');
+    console.log(`${this.user().first_name} - ${this.counter()} `);
+  });
+
+  increaseBy(value: number) {
+    this.counter.update((current) => current + value);
+  }
 
   handleFieldUpdated(field: keyof User, value: string) {
     console.log({ field, value });
@@ -76,3 +115,8 @@ export class PropertiesPageComponent {
     });
   }
 }
+
+/* ******************************************************************************************************************* */
+/*
+Para que el effect tenga el comportamiento deseado se debe de evitar la mutación de los objetos en los signal que son dependencias, y regresar una nueva referencia del objeto. Para hacer una relación, se debe de trabajar de una manera similar a los estados de React, donde se se evitar mutar directamente el state.
+*/
