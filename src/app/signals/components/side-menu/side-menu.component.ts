@@ -26,6 +26,7 @@ export class SideMenuComponent {
     { name: 'Contador', route: 'counter' },
     { name: 'Usuario', route: 'user-info' },
     { name: 'Mutaciones', route: 'properties' },
+    { name: 'Signal VS RxJS', route: 'signal-vs-rxjs' },
   ]);
 }
 

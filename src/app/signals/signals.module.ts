@@ -7,6 +7,7 @@ import { CounterPageComponent } from './pages/counter-page/counter-page.componen
 import { UserInfoPageComponent } from './pages/user-info-page/user-info-page.component';
 import { PropertiesPageComponent } from './pages/properties-page/properties-page.component';
 import { SideMenuComponent } from './components/side-menu/side-menu.component';
+import { SignalVsRxjsPageComponent } from './pages/signal-vs-rxjs-page/signal-vs-rxjs-page.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { SideMenuComponent } from './components/side-menu/side-menu.component';
     CounterPageComponent,
     UserInfoPageComponent,
     PropertiesPageComponent,
-    SideMenuComponent
+    SideMenuComponent,
+    SignalVsRxjsPageComponent
   ],
   imports: [
     CommonModule,

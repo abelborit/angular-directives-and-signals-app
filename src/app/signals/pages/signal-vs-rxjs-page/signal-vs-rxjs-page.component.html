@@ -1,0 +1,38 @@
+<div class="row mt-2">
+  <div class="col">
+    <h3>Signal</h3>
+    <hr />
+
+    <p><b>Counter:</b> {{ counterSignal() }}</p>
+    <p><b>Counter 2:</b> {{ counter2Signal() }}</p>
+    <p>-------------------------------------</p>
+    <p>-------------------------------------</p>
+    <hr />
+    <p><b>Double Counter:</b> {{ doubleCountSignal() }}</p>
+    <hr />
+    <p><b>Count1 + Count2:</b> {{ count1PlusCount2Signal() }}</p>
+  </div>
+
+  <div class="col">
+    <h3>RxJS</h3>
+    <hr />
+
+    <p><b>Counter -- pipe async:</b> {{ counterRxJS | async }}</p>
+    <p><b>Counter 2 -- pipe async:</b> {{ counter2RxJS | async }}</p>
+    <p><b>Counter -- .value:</b> {{ counterRxJS.value }}</p>
+    <p><b>Counter -- .getValue():</b> {{ counterRxJS.getValue() }}</p>
+
+    <hr />
+    <p><b>Double Counter -- pipe async:</b> {{ doubleCountRxJS | async }}</p>
+    <hr />
+    <p>
+      <b>Count1 + Count2 -- pipe async:</b> {{ count1PlusCount2RxJS | async }}
+    </p>
+  </div>
+</div>
+
+<br />
+<hr />
+<button (click)="tiggerChanges()" class="btn btn-primary">
+  Cambiar valores
+</button>

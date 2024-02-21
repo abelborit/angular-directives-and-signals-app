@@ -4,6 +4,7 @@ import { SignalsLayoutComponent } from './layout/signals-layout/signals-layout.c
 import { CounterPageComponent } from './pages/counter-page/counter-page.component';
 import { UserInfoPageComponent } from './pages/user-info-page/user-info-page.component';
 import { PropertiesPageComponent } from './pages/properties-page/properties-page.component';
+import { SignalVsRxjsPageComponent } from './pages/signal-vs-rxjs-page/signal-vs-rxjs-page.component';
 
 const routes: Routes = [
   {
@@ -13,6 +14,7 @@ const routes: Routes = [
       { path: 'counter', component: CounterPageComponent },
       { path: 'user-info', component: UserInfoPageComponent },
       { path: 'properties', component: PropertiesPageComponent },
+      { path: 'signal-vs-rxjs', component: SignalVsRxjsPageComponent },
       { path: '**', redirectTo: 'counter' },
     ],
   },
